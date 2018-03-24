@@ -1,0 +1,96 @@
+﻿@model IEnumerable<Seminar.Models.Predbiljezbe>
+
+@{
+    ViewBag.Title = "prihvacenePredbiljezbe";
+}
+
+<h2>Prihvacene-Predbiljezbe</h2>
+
+@using (Html.BeginForm())
+{
+<p align="right">
+    Search by: Name/Surname @Html.TextBox("searchBar")
+
+    <input class="btn btn-outline-info" type="submit" value="Search"/>
+</p>
+}
+
+<hr />
+<head>
+    <style>
+        th {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumPredbiljezbe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prezime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adresa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mobitel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prihvacen_Odbijen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seminari.NazivSeminara)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumPredbiljezbe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prezime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Adresa)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mobitel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Prihvacen_Odbijen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seminari.NazivSeminara)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "EditPredbiljezbe", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "DeletePredbiljezbe", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+<p align="center">
+    <a class="btn btn-outline-info" href="~/Home/prihvacenePredbiljezbe">Back to:Prihvacene-Predbiljezbe</a>
+</p>
+
+<link href="~/Content/Lux-bootstrap.css" rel="stylesheet" />

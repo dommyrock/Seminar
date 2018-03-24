@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Seminar.Models.Predbiljezbe>
+
+<h2>Uvid i obrada Predbilježbi</h2>
+<hr />
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10">
+        <a class="btn btn-success" href="~/Home/prihvacenePredbiljezbe">Prihvacene predbiljezbe</a>
+        <a class="btn btn-danger" href="~/Home/odbijenePredbiljezbe">Odbijene predbiljezbe</a>
+        <a class="btn btn-outline-warning " href="~/Home/neobradenePredbijezbe">Neobrađene prediljezbe</a>
+    </div>
+</div>
+@using (Html.BeginForm())
+{
+    <p align="right">
+        Search by: Name/Surname @Html.TextBox("searchBar")
+
+        <input class="btn btn-outline-info" type="submit" value="Search"/>
+    </p>
+}
+<hr />
+<head>
+    <style>
+        th {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DatumPredbiljezbe)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Ime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prezime)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adresa)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mobitel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prihvacen_Odbijen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Seminari.NazivSeminara)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DatumPredbiljezbe)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Ime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prezime)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adresa)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Mobitel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prihvacen_Odbijen)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Seminari.NazivSeminara)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditPredbiljezbe", new { id = item.Id }) |
+                        @Html.ActionLink("Delete", "DeletePredbiljezbe", new { id = item.Id })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+<link href="~/Content/Lux-bootstrap.css" rel="stylesheet" />

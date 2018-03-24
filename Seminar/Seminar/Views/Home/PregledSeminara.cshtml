@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Seminar.Models.SeminariPredbiljezbeCount>
+
+@{
+    ViewBag.Title = "PregledSeminara";
+}
+
+<h2>Pregled-Seminara</h2>
+<head>
+    <style>
+        th {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "DodajNoviSeminar")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NazivSeminara)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatumPocetka)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Popunjen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Opis)
+            </th>
+            <th>
+                Broj upisa
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazivSeminara)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumPocetka)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsActive)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Popunjen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.count)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+
+<link href="~/Content/Lux-bootstrap.css" rel="stylesheet" />

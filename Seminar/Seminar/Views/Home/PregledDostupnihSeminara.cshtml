@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Seminar.Models.Seminari>
+
+@{
+    ViewBag.Title = "PregledDostupnihSeminara";
+}
+<h2>Pregled Dostupnih Seminara</h2>
+@using (Html.BeginForm())
+{
+<p align="right">
+    @Html.TextBox("searchBar")
+    <input class="btn btn-outline-info" type="submit" value="Search"/>
+</p>
+    
+}
+<br />
+<hr />
+<head>
+    <style>
+        th {
+            background-color: #343a40;
+        }
+    </style>
+</head>
+<body>
+    <table class="table table-hover">
+        <tr>
+            <th></th>
+            <th>
+                Naziv Seminara
+            </th>
+            <th>
+                Datum Pocetka
+            </th>
+            <th>
+                Opis
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a class="btn btn-outline-success" href="~/Home/IzradaPredbiljezbe?IdSeminar=@item.Id&NazivSeminara=@item.NazivSeminara">Odaberi</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NazivSeminara)
+                </td>
+                <td>
+                    @Convert.ToDateTime(item.DatumPocetka).ToShortDateString()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Opis)
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+<link href="~/Content/Lux-bootstrap.css" rel="stylesheet" />
