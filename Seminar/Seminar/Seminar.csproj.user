@@ -19,6 +19,7 @@
     <WebStackScaffolding_DbContextTypeFullName>Seminar.Models.DbUpisi_Seminar</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>False</WebStackScaffolding_IsViewGenerationSelected>
+    <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
